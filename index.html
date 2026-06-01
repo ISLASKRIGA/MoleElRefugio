@@ -38,6 +38,15 @@
                 <li><a href="#historia">Nuestra Historia</a></li>
                 <li><a href="#coleccion">Colección</a></li>
                 <li><a href="#contacto" class="btn-primary">Adquirir</a></li>
+                <li>
+                    <a href="#" class="cart-icon" id="cart-icon" onclick="openCart(event)">
+                        <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle>
+                            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                        </svg>
+                        <span class="cart-count" id="cart-count">0</span>
+                    </a>
+                </li>
             </ul>
             <div class="hamburger">
                 <span></span>
@@ -49,6 +58,15 @@
 
     <!-- Hero Section -->
     <section id="inicio" class="hero">
+        <div class="slider-container">
+            <div class="slide active" style="background-image: url('assets/hero_mole.png');"></div>
+            <div class="slide" style="background-image: url('assets/hero_slider_2.png');"></div>
+            <div class="slide" style="background-image: url('assets/hero_slider_3.png');"></div>
+        </div>
+        <div class="slider-controls">
+            <button class="slider-btn prev" onclick="moveSlide(-1)">&#10094;</button>
+            <button class="slider-btn next" onclick="moveSlide(1)">&#10095;</button>
+        </div>
         <div class="hero-overlay"></div>
         <div class="hero-content">
             <span class="hero-subtitle">La esencia de la tradición</span>
@@ -78,7 +96,7 @@
                         <h3>Mole Poblano Artesanal</h3>
                         <p>Una mezcla exquisita de chiles, cacao y especias, perfecta para ocasiones especiales.</p>
                         <span class="price">$450 MXN</span>
-                        <button class="btn-outline">Añadir al Carrito</button>
+                        <button class="btn-outline" onclick="openProductModal('Mole Poblano Artesanal', 450, 'assets/mole_jar.png', 'Una mezcla exquisita de chiles, cacao y especias, perfecta para ocasiones especiales.', 'Frasco de 500g')">Ver Detalles</button>
                     </div>
                 </div>
             </div>
@@ -113,6 +131,60 @@
             </div>
         </div>
     </footer>
+
+    <!-- Product Modal -->
+    <div id="product-modal" class="modal-overlay">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeProductModal()">&times;</span>
+            <div class="modal-grid">
+                <div class="modal-image">
+                    <img id="modal-img" src="" alt="Producto">
+                </div>
+                <div class="modal-details">
+                    <h2 id="modal-title">Título</h2>
+                    <p id="modal-weight" class="weight-info">Peso</p>
+                    <p id="modal-desc" class="modal-desc">Descripción</p>
+                    <div class="modal-price" id="modal-price">$0</div>
+                    
+                    <div class="quantity-selector">
+                        <span>Cantidad:</span>
+                        <div class="qty-controls">
+                            <button onclick="updateModalQty(-1)">-</button>
+                            <input type="number" id="modal-qty" value="1" min="1" readonly>
+                            <button onclick="updateModalQty(1)">+</button>
+                        </div>
+                    </div>
+                    
+                    <button class="btn-primary w-100" onclick="addToCartFromModal()">Agregar al Carrito</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cart Drawer -->
+    <div id="cart-drawer" class="cart-overlay">
+        <div class="cart-panel">
+            <div class="cart-header">
+                <h2>Tu Pedido</h2>
+                <span class="close-cart" onclick="closeCart()">&times;</span>
+            </div>
+            <div class="cart-items" id="cart-items">
+                <!-- Items se generan con JS -->
+            </div>
+            <div class="cart-footer">
+                <div class="cart-total">
+                    <span>Total:</span>
+                    <span id="cart-total-price">$0.00 MXN</span>
+                </div>
+                <button class="btn-whatsapp" onclick="checkoutWhatsapp()">
+                    <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+                    </svg>
+                    Comprar por WhatsApp
+                </button>
+            </div>
+        </div>
+    </div>
 
     <script src="js/main.js"></script>
 </body>
