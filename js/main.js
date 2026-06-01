@@ -2,13 +2,17 @@
 window.addEventListener('scroll', () => {
     const navbar = document.querySelector('.navbar');
     if (window.scrollY > 50) {
-        navbar.style.background = 'rgba(26, 15, 8, 0.98)';
-        navbar.style.boxShadow = '0 4px 20px rgba(0,0,0,0.5)';
-        navbar.style.padding = '0.5rem 0';
+        navbar.style.backgroundColor = 'rgba(26, 15, 8, 0.15)';
+        navbar.style.backdropFilter = 'blur(8px)';
+        navbar.style.WebkitBackdropFilter = 'blur(8px)'; // Safari support
+        navbar.style.boxShadow = '0 4px 10px rgba(0,0,0,0.1)';
+        navbar.style.borderBottom = 'none';
     } else {
-        navbar.style.background = 'rgba(43, 27, 16, 0.95)';
+        navbar.style.backgroundColor = 'transparent';
+        navbar.style.backdropFilter = 'none';
+        navbar.style.WebkitBackdropFilter = 'none';
         navbar.style.boxShadow = 'none';
-        navbar.style.padding = '0';
+        navbar.style.borderBottom = 'none';
     }
 });
 
@@ -223,3 +227,24 @@ function resetSlideTimer() {
 
 // Initialize on load
 document.addEventListener('DOMContentLoaded', initSlider);
+
+// Hamburger menu
+const hamburger = document.querySelector('.hamburger');
+const navLinks = document.querySelector('.nav-links');
+
+if (hamburger) {
+    hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('active');
+        navLinks.classList.toggle('active');
+    });
+}
+
+// Close menu when a link is clicked
+document.querySelectorAll('.nav-links li a').forEach(link => {
+    link.addEventListener('click', () => {
+        if(hamburger.classList.contains('active')) {
+            hamburger.classList.remove('active');
+            navLinks.classList.remove('active');
+        }
+    });
+});
