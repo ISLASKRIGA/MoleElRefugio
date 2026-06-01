@@ -1,20 +1,4 @@
-// Navbar scroll effect
-window.addEventListener('scroll', () => {
-    const navbar = document.querySelector('.navbar');
-    if (window.scrollY > 50) {
-        navbar.style.backgroundColor = 'rgba(26, 15, 8, 0.15)';
-        navbar.style.backdropFilter = 'blur(8px)';
-        navbar.style.WebkitBackdropFilter = 'blur(8px)'; // Safari support
-        navbar.style.boxShadow = '0 4px 10px rgba(0,0,0,0.1)';
-        navbar.style.borderBottom = 'none';
-    } else {
-        navbar.style.backgroundColor = 'transparent';
-        navbar.style.backdropFilter = 'none';
-        navbar.style.WebkitBackdropFilter = 'none';
-        navbar.style.boxShadow = 'none';
-        navbar.style.borderBottom = 'none';
-    }
-});
+// Navbar scroll effect removed so it stays completely transparent
 
 // Smooth scrolling for anchor links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
