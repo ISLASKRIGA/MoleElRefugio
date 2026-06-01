@@ -79,49 +79,21 @@ ul {
 
 .logo {
     display: flex;
-    flex-direction: column;
     align-items: center;
     cursor: pointer;
 }
 
-.logo-text {
-    text-align: center;
+.logo-img {
+    height: 140px; /* Increased from 70px to make it much bigger */
+    margin: -30px 0; /* Negative margin to prevent the navbar from becoming too tall */
+    width: auto;
+    object-fit: contain;
+    transition: transform 0.3s ease;
 }
 
-.logo-text h1 {
-    font-size: 1.5rem;
-    letter-spacing: 2px;
-    color: var(--accent-gold);
-    text-transform: uppercase;
+.logo-img:hover {
+    transform: scale(1.05);
 }
-
-.logo-text h1 span {
-    font-family: var(--font-heading);
-    text-transform: lowercase;
-    font-style: italic;
-    font-weight: 400;
-}
-
-.logo-text p {
-    font-family: var(--font-heading);
-    font-size: 0.8rem;
-    color: var(--accent-gold);
-    font-style: italic;
-    letter-spacing: 1px;
-    position: relative;
-}
-
-.logo-text p::before,
-.logo-text p::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    width: 20px;
-    height: 1px;
-    background-color: var(--accent-gold);
-}
-.logo-text p::before { left: -25px; }
-.logo-text p::after { right: -25px; }
 
 .nav-links {
     display: flex;
@@ -377,7 +349,70 @@ ul {
 
 .section-header p {
     color: var(--text-muted);
-    font-size: 1.1rem;
+}
+
+/* Historia Section */
+.historia {
+    background-color: var(--bg-darker);
+}
+
+.historia-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+.historia-subtitle {
+    font-family: var(--font-heading);
+    color: var(--accent-gold);
+    font-size: 1.2rem;
+    font-style: italic;
+    letter-spacing: 2px;
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.historia-content h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+}
+
+.historia-content p {
+    color: var(--text-light);
+    opacity: 0.9;
+    margin-bottom: 1.5rem;
+    line-height: 1.8;
+}
+
+.historia-images {
+    position: relative;
+    height: 500px;
+}
+
+.historia-img-main {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 80%;
+    height: 80%;
+    object-fit: cover;
+    border: 2px solid rgba(244, 162, 29, 0.2);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+    border-radius: 4px;
+}
+
+.historia-img-sub {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60%;
+    height: 60%;
+    object-fit: cover;
+    border: 2px solid rgba(244, 162, 29, 0.4);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.8);
+    border-radius: 4px;
 }
 
 /* Showcase */
@@ -822,6 +857,17 @@ ul {
 }
 
 /* Responsive */
+@media (max-width: 992px) {
+    .historia-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .historia-images {
+        height: 400px;
+        margin-top: 3rem;
+    }
+}
+
 @media (max-width: 768px) {
     .hamburger {
         display: flex;
