@@ -3,196 +3,451 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mole del Refugio | El platillo divino</title>
-    <meta name="description" content="Mole del Refugio - El platillo divino. Experiencia gourmet inigualable, mole tradicional con ingredientes de la más alta calidad.">
+    <title>Mole El Refugio | El Platillo Divino</title>
+    <meta name="description" content="Mole El Refugio ofrece mole artesanal molido en metate de la más alta calidad, libre de conservadores y harinas. Saborea la tradición.">
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800;900&family=Rubik:ital,wght@0,400;0,500;0,700;0,900;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/styles.css">
+    <!-- GSAP for animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <!-- Lenis Smooth Scroll -->
+    <script src="https://unpkg.com/lenis@1.1.5/dist/lenis.min.js"></script>
 </head>
 <body>
-    <!-- Navbar -->
-    <nav class="navbar">
+
+    <!-- Sticky Header -->
+    <header class="navbar" id="navbar">
         <div class="nav-container">
+            <!-- Brand Logo (Vector SVG) -->
             <div class="logo">
-                <a href="#inicio">
-                    <img src="assets/logo.png" alt="Mole del Refugio" class="logo-img">
+                <a href="#hero">
+                    <svg viewBox="0 0 220 52" width="168" height="40" class="logo-svg">
+                        <text x="0" y="39" font-family="'Outfit', 'Rubik', sans-serif" font-weight="900" font-size="32" fill="#FDFBF7" textLength="214" lengthAdjust="spacingAndGlyphs" style="transform: scaleY(1.35); transform-origin: bottom left;">EL REFUGIO</text>
+                    </svg>
                 </a>
             </div>
-            <ul class="nav-links">
-                <li><a href="#inicio">Inicio</a></li>
-                <li><a href="#historia">Nuestra Historia</a></li>
-                <li><a href="#coleccion">Colección</a></li>
-                <li><a href="#contacto" class="btn-primary">Adquirir</a></li>
-                <li>
-                    <a href="#" class="cart-icon" id="cart-icon" onclick="openCart(event)">
-                        <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                            <circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle>
-                            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
-                        </svg>
-                        <span class="cart-count" id="cart-count">0</span>
-                    </a>
-                </li>
-            </ul>
-            <div class="hamburger">
+
+            <!-- Hamburger Button -->
+            <button class="hamburger-circle" id="hamburger" aria-label="Toggle Menu">
                 <span></span>
                 <span></span>
-                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Navigation Drawer -->
+    <div class="mobile-menu" id="mobile-menu">
+        <ul class="mobile-nav-links">
+            <li><a href="#hero">Inicio</a></li>
+            <li><a href="#products">Productos</a></li>
+            <li><a href="#comparison">Tradición</a></li>
+            <li><a href="#recipes">Recetas</a></li>
+            <li><a href="#newsletter" class="btn-primary w-100 text-center">Adquirir</a></li>
+        </ul>
+    </div>
+
+    <!-- Hero Section (Steak Theme adapted to Mole) -->
+    <section id="hero" class="hero-section hero-steak-theme">
+        <!-- Floating organic mole food blobs -->
+        <div class="floating-food top-left">
+            <div class="blob-mask">
+                <img src="assets/hero_mole_poblano.png" alt="Mole Poblano Tradicional">
             </div>
         </div>
-    </nav>
+        <div class="floating-food top-right">
+            <div class="blob-mask">
+                <img src="assets/hero_slider_2.png" alt="Enmoladas de Pollo">
+            </div>
+        </div>
+        <div class="floating-food bottom-left">
+            <div class="blob-mask">
+                <img src="assets/hero_slider_3.png" alt="Mole Verde de Olla">
+            </div>
+        </div>
+        <div class="floating-food bottom-right">
+            <div class="blob-mask">
+                <img src="assets/historia_ingredientes.png" alt="Ingredientes del Mole">
+            </div>
+        </div>
 
-    <!-- Hero Section -->
-    <section id="inicio" class="hero">
-        <div class="slider-container">
-            <div class="slide active" style="background-image: url('assets/hero_mole.png');"></div>
-            <div class="slide" style="background-image: url('assets/hero_slider_2.png');"></div>
-            <div class="slide" style="background-image: url('assets/hero_slider_3.png');"></div>
+        <!-- Center content layout -->
+        <div class="hero-steak-content text-center">
+            <span class="hero-steak-sub">Mole del Refugio</span>
+            <div class="hero-steak-tagline">⪧ EL PLATILLO DIVINO ⪦</div>
+            <div class="hero-steak-title-container">
+                <h1 class="hero-steak-title uppercase">
+                    MOLE<br>
+                    <span class="plants-text-wrap">(EL REFUGIO)</span>
+                </h1>
+                <img src="assets/mole_plate.png" alt="Plato de Mole Poblano" class="title-steak-plate">
+            </div>
         </div>
-        <div class="slider-controls">
-            <button class="slider-btn prev" onclick="moveSlide(-1)">&#10094;</button>
-            <button class="slider-btn next" onclick="moveSlide(1)">&#10095;</button>
-        </div>
-        <div class="hero-overlay"></div>
-        <div class="hero-content">
-            <span class="hero-subtitle">La esencia de la tradición</span>
-            <h2 class="hero-title">El Platillo Divino.</h2>
-            <p class="hero-desc">Descubre el sabor ancestral en cada bocado. Una receta guardada con recelo, ahora en tu mesa.</p>
-            <div class="hero-actions">
-                <a href="#coleccion" class="btn-primary large">Descubrir Colección</a>
-                <a href="#historia" class="btn-secondary large">Nuestra Historia</a>
+            <div class="hero-steak-actions">
+                <a href="saber-mas.html" class="btn-steak">&rsaquo; SABER MAS &lsaquo;</a>
+                <a href="#newsletter" class="btn-steak">&rsaquo; CERCA DE MI &lsaquo;</a>
+            </div>
+    </section>
+
+
+    <!-- Philosophy & Stats Section -->
+    <section class="intro-section section-padding">
+        <div class="container text-center">
+            <div class="intro-box">
+                <h2 class="intro-title uppercase">Amamos el Mole.</h2>
+                <div class="red-line mx-auto"></div>
+                <p class="intro-text">
+                    Pero seamos sinceros—el mole industrializado de hoy ha perdido su esencia. Por eso pasamos años analizando las recetas tradicionales a nivel artesanal para recrear la molienda perfecta en metate, el aroma ahumado y el sabor divino de antes. El resultado es un mole 100% natural, libre de harinas, conservadores y almidones artificiales.
+                </p>
+                <div class="stat-grid">
+                    <div class="stat-card">
+                        <div class="stat-number" id="stat-water">100%</div>
+                        <div class="stat-label">Ingredientes Naturales</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number" id="stat-land">24h</div>
+                        <div class="stat-label">Molienda y Cocción Lenta</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number" id="stat-emissions">0%</div>
+                        <div class="stat-label">Aditivos o Harinas</div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Historia Section -->
-    <section id="historia" class="historia section-padding">
-        <div class="container">
-            <div class="historia-grid">
-                <div class="historia-content">
-                    <span class="historia-subtitle">Nuestras Raíces</span>
-                    <h2>Un Legado Culinario Cuidado con Recelo</h2>
-                    <div class="divider" style="margin: 1.5rem 0;"></div>
-                    <p>En <strong>Mole del Refugio</strong> no solo preparamos un platillo, preservamos una historia que ha sido heredada de generación en generación. Nuestra receta nace del misticismo de las cocinas tradicionales mexicanas, donde el tiempo se detiene y el barro guarda los secretos del sabor absoluto.</p>
-                    <p>Cada lote es una obra de arte artesanal: molemos a mano en metate de piedra volcánica nuestros cacaos de origen, chiles secos seleccionados uno a uno y especias tostadas en comal. Es este proceso meticuloso, sin atajos ni ingredientes artificiales, lo que le otorga a nuestro mole ese perfil premium, profundo y verdaderamente divino.</p>
-                </div>
-                <div class="historia-images">
-                    <img src="assets/historia_cocina.png" alt="Cocina Tradicional" class="historia-img-main">
-                    <img src="assets/historia_ingredientes.png" alt="Molienda en Metate" class="historia-img-sub">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Product Showcase -->
-    <section id="coleccion" class="showcase section-padding">
+    <!-- Products Slider Section -->
+    <section id="products" class="products-section section-padding">
         <div class="container">
             <div class="section-header">
-                <h2>Nuestra Colección</h2>
-                <div class="divider"></div>
-                <p>Ingredientes seleccionados a mano, tostados a la perfección.</p>
+                <span class="section-tag uppercase">Nuestra Molienda</span>
+                <h2 class="section-title uppercase">Elige Tu Tradición</h2>
+                <p class="section-subtitle">Mole artesanal en pasta, listo para diluir y saborear la mística de la cocina mexicana.</p>
             </div>
-            <div class="product-grid">
-                <div class="product-card">
-                    <div class="product-image">
-                        <img src="assets/mole_jar.png" alt="Mole del Refugio Tradicional">
+            
+            <!-- Custom Product Slider -->
+            <div class="carousel-container">
+                <button class="carousel-nav prev" id="prod-prev" aria-label="Anterior Slide">&#10094;</button>
+                <div class="carousel-track-wrapper">
+                    <div class="carousel-track" id="prod-track">
+                        
+                        <!-- Mole Poblano Card -->
+                        <div class="product-card">
+                            <div class="card-tag">El Favorito</div>
+                            <div class="card-image-box">
+                                <img src="assets/mole_jar.png" alt="Mole Poblano Artesanal" class="product-img">
+                            </div>
+                            <div class="card-details">
+                                <h3 class="product-name uppercase">Mole Poblano</h3>
+                                <p class="product-info-text">Nuestra receta insignia. Un balance celestial de chiles mulato, ancho y pasilla, cacao fino de origen y una lluvia de semillas tostadas.</p>
+                                <div class="product-specs">
+                                    <span><strong>100%</strong> Metate</span>
+                                    <span><strong>Cacao</strong> Orgánico</span>
+                                </div>
+                                <div class="card-actions">
+                                    <button class="btn-primary w-100" onclick="showProductDetails('poblano')">Vista Rápida</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Mole Negro Card -->
+                        <div class="product-card">
+                            <div class="card-tag">Ahumado y Oscuro</div>
+                            <div class="card-image-box">
+                                <img src="assets/mole_jar.png" alt="Mole Negro Oaxaqueño" class="product-img" style="filter: brightness(0.85) sepia(0.2);">
+                            </div>
+                            <div class="card-details">
+                                <h3 class="product-name uppercase">Mole Negro</h3>
+                                <p class="product-info-text">Receta tradicional oaxaqueña. Fuerte, ahumado e intrigante, elaborado con cenizas de chiles secos, plátano macho y chocolate amargo.</p>
+                                <div class="product-specs">
+                                    <span><strong>Fuerte</strong> Ahumado</span>
+                                    <span><strong>Estilo</strong> Oaxaca</span>
+                                </div>
+                                <div class="card-actions">
+                                    <button class="btn-primary w-100" onclick="showProductDetails('negro')">Vista Rápida</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Mole Verde Card -->
+                        <div class="product-card">
+                            <div class="card-tag">Herbal y Fresco</div>
+                            <div class="card-image-box">
+                                <img src="assets/mole_jar.png" alt="Mole Verde Esmeralda" class="product-img" style="filter: hue-rotate(60deg) brightness(0.95);">
+                            </div>
+                            <div class="card-details">
+                                <h3 class="product-name uppercase">Mole Verde</h3>
+                                <p class="product-info-text">Fresco y aromático. Salsa tersa hecha de pepitas de calabaza, chiles verdes serranos, epazote fresco, hoja santa y hoja de aguacate.</p>
+                                <div class="product-specs">
+                                    <span><strong>Pepitas</strong> Calabaza</span>
+                                    <span><strong>Hierbas</strong> Frescas</span>
+                                </div>
+                                <div class="card-actions">
+                                    <button class="btn-primary w-100" onclick="showProductDetails('verde')">Vista Rápida</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Pipian Rojo Card -->
+                        <div class="product-card">
+                            <div class="card-tag">Semilla Tostada</div>
+                            <div class="card-image-box">
+                                <img src="assets/mole_jar.png" alt="Pipían Rojo Especial" class="product-img" style="filter: hue-rotate(340deg) saturate(1.2);">
+                            </div>
+                            <div class="card-details">
+                                <h3 class="product-name uppercase">Pipían Rojo</h3>
+                                <p class="product-info-text">Salsa robusta de semillas de calabaza y ajonjolí tostado, teñida con chiles guajillos y anchos. Sabor especiado de gran cuerpo.</p>
+                                <div class="product-specs">
+                                    <span><strong>Ajonjolí</strong> Base</span>
+                                    <span><strong>Picante</strong> Suave</span>
+                                </div>
+                                <div class="card-actions">
+                                    <button class="btn-primary w-100" onclick="showProductDetails('pipian')">Vista Rápida</button>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
-                    <div class="product-info">
-                        <h3>Mole Poblano Artesanal</h3>
-                        <p>Una mezcla exquisita de chiles, cacao y especias, perfecta para ocasiones especiales.</p>
-                        <span class="price">$450 MXN</span>
-                        <button class="btn-outline" onclick="openProductModal('Mole Poblano Artesanal', 450, 'assets/mole_jar.png', 'Una mezcla exquisita de chiles, cacao y especias, perfecta para ocasiones especiales.', 'Frasco de 500g')">Ver Detalles</button>
+                </div>
+                <button class="carousel-nav next" id="prod-next" aria-label="Siguiente Slide">&#10095;</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Comparison Section (Metate vs. Comercial) -->
+    <section id="comparison" class="comparison-section section-padding">
+        <div class="container">
+            <div class="section-header text-center">
+                <span class="section-tag uppercase">La Comparativa</span>
+                <h2 class="section-title uppercase">Metate vs. Industrial</h2>
+                <p class="section-subtitle">Descubre la diferencia entre el mole auténtico hecho a mano y las marcas procesadas del supermercado.</p>
+            </div>
+
+            <div class="comparison-container">
+                <!-- Tabs to choose product comparison -->
+                <div class="comparison-tabs">
+                    <button class="tab-btn active" onclick="switchComparison('poblano')">Mole Poblano</button>
+                    <button class="tab-btn" onclick="switchComparison('negro')">Mole Negro</button>
+                    <button class="tab-btn" onclick="switchComparison('verde')">Mole Verde</button>
+                </div>
+
+                <!-- Comparison Dashboard -->
+                <div class="comparison-card">
+                    <div class="comparison-grid">
+                        
+                        <!-- Plant side (Artesanal) -->
+                        <div class="comp-column plant-side">
+                            <div class="comp-header">
+                                <h3 class="uppercase">El Refugio</h3>
+                                <span class="comp-label">Metate Tradicional</span>
+                            </div>
+                            <div class="comp-stats-list" id="plant-stats">
+                                <!-- Dynamic stats go here -->
+                            </div>
+                        </div>
+
+                        <!-- VS Middle Indicator -->
+                        <div class="comp-vs-circle">VS</div>
+
+                        <!-- Animal side (Industrial) -->
+                        <div class="comp-column animal-side">
+                            <div class="comp-header">
+                                <h3 class="uppercase" id="animal-title">Mole de Súper</h3>
+                                <span class="comp-label">Procesado Industrial</span>
+                            </div>
+                            <div class="comp-stats-list" id="animal-stats">
+                                <!-- Dynamic stats go here -->
+                            </div>
+                        </div>
+
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer id="contacto" class="footer">
+    <!-- Recipes Showcase Section -->
+    <section id="recipes" class="recipes-section section-padding">
         <div class="container">
-            <div class="footer-grid">
-                <div class="footer-brand">
-                    <h2>Mole del Refugio</h2>
-                    <p>El platillo divino</p>
-                    <p class="footer-desc">Redefiniendo la experiencia del mole tradicional con un toque gourmet inigualable.</p>
-                </div>
-                <div class="footer-links">
-                    <h4>Enlaces Rápidos</h4>
-                    <ul>
-                        <li><a href="#inicio">Inicio</a></li>
-                        <li><a href="#historia">Historia</a></li>
-                        <li><a href="#coleccion">Productos</a></li>
-                    </ul>
-                </div>
-                <div class="footer-contact">
-                    <h4>Contacto</h4>
-                    <p>info@moledelrefugio.com</p>
-                    <p>WhatsApp: +52 1 55 6862 2824</p>
+            <div class="section-header flex-header">
+                <div>
+                    <span class="section-tag uppercase">El Arte de Cocinar</span>
+                    <h2 class="section-title uppercase">Sabores en Tu Mesa</h2>
+                    <p class="section-subtitle">El mole es versátil. Prepara estos clásicos platillos mexicanos en pocos minutos.</p>
                 </div>
             </div>
+
+            <!-- Recipes Grid -->
+            <div class="recipes-grid">
+                
+                <!-- Recipe 1 -->
+                <div class="recipe-card">
+                    <div class="recipe-image-box">
+                        <img src="assets/hero_mole.png" alt="Pollo con Mole Poblano" class="recipe-img">
+                        <div class="recipe-time">30 min</div>
+                    </div>
+                    <div class="recipe-details">
+                        <span class="recipe-category uppercase">Clásicos</span>
+                        <h3 class="recipe-name uppercase">Pollo con Mole Poblano</h3>
+                        <p class="recipe-description">Piernas y muslos de pollo tiernos bañados en nuestro exquisito Mole Poblano, adornados con ajonjolí y acompañados de arroz.</p>
+                        <a href="#" class="btn-text" onclick="event.preventDefault(); alert('1. Cuece el pollo con cebolla y sal.\n2. Calienta caldo de pollo y disuelve la pasta de Mole El Refugio a fuego lento hasta espesar.\n3. Baña las piezas de pollo y sirve con ajonjolí tostado.');">Receta Completa &rarr;</a>
+                    </div>
+                </div>
+
+                <!-- Recipe 2 -->
+                <div class="recipe-card">
+                    <div class="recipe-image-box">
+                        <img src="assets/hero_slider_2.png" alt="Enmoladas de Pollo" class="recipe-img">
+                        <div class="recipe-time">15 min</div>
+                    </div>
+                    <div class="recipe-details">
+                        <span class="recipe-category uppercase">Cenas Rápidas</span>
+                        <h3 class="recipe-name uppercase">Enmoladas de Pollo</h3>
+                        <p class="recipe-description">Tortillas rellenas de pollo deshebrado, sumergidas en mole caliente y coronadas con crema fresca, cebolla y queso fresco.</p>
+                        <a href="#" class="btn-text" onclick="event.preventDefault(); alert('1. Calienta la pasta de Mole con caldo de pollo.\n2. Pasa tortillas por mole caliente, rellénalas de pollo deshebrado y dóblalas.\n3. Báñalas con más mole, crema, queso espolvoreado y aros de cebolla.');">Receta Completa &rarr;</a>
+                    </div>
+                </div>
+
+                <!-- Recipe 3 -->
+                <div class="recipe-card">
+                    <div class="recipe-image-box">
+                        <img src="assets/hero_slider_3.png" alt="Puerco en Pipían Verde" class="recipe-img">
+                        <div class="recipe-time">45 min</div>
+                    </div>
+                    <div class="recipe-details">
+                        <span class="recipe-category uppercase">Gourmet</span>
+                        <h3 class="recipe-name uppercase">Cerdo en Pipían Verde</h3>
+                        <p class="recipe-description">Costillas de cerdo doradas cocinadas a fuego lento en nuestro Mole Verde con pepitas de calabaza, ejotes y calabacitas.</p>
+                        <a href="#" class="btn-text" onclick="event.preventDefault(); alert('1. Cuece y dora costillas de cerdo en una olla.\n2. Disuelve la pasta de Mole Verde con caldo y agrégala al cerdo.\n3. Incorpora verduras cocidas (ejotes, calabacitas) y hierve a fuego lento 10 minutos.');">Receta Completa &rarr;</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- High-Impact Newsletter Signup Section -->
+    <section id="newsletter" class="newsletter-section section-padding">
+        <div class="container text-center">
+            <div class="newsletter-box">
+                <span class="newsletter-tag uppercase">Sé parte del Refugio</span>
+                <h2 class="newsletter-title uppercase">¿Quieres probar el secreto?</h2>
+                <p class="newsletter-desc">Suscríbete para recibir lanzamientos de moliendas especiales, recetas tradicionales y promociones exclusivas en tu correo.</p>
+                <form class="newsletter-form" id="newsletter-form" onsubmit="event.preventDefault(); alert('¡Gracias por suscribirte al club de Mole El Refugio!'); this.reset();">
+                    <input type="email" placeholder="Ingresa tu correo electrónico" class="newsletter-input" required>
+                    <button type="submit" class="btn-primary">Suscribirse</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                
+                <div class="footer-brand-info">
+                    <div class="footer-logo">
+                        <svg viewBox="0 0 220 52" width="168" height="40" class="logo-svg">
+                            <text x="0" y="39" font-family="'Outfit', 'Rubik', sans-serif" font-weight="900" font-size="32" fill="#FDFBF7" textLength="214" lengthAdjust="spacingAndGlyphs" style="transform: scaleY(1.35); transform-origin: bottom left;">EL REFUGIO</text>
+                        </svg>
+                    </div>
+                    <p class="footer-brand-desc">Elaborando mole artesanal premium con chiles selectos y cacaos de origen. El platillo divino en tu mesa.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook">FB</a>
+                        <a href="#" aria-label="Instagram">IG</a>
+                        <a href="#" aria-label="Twitter">TW</a>
+                    </div>
+                </div>
+
+                <div class="footer-links-col">
+                    <h4 class="footer-title uppercase">Moliendas</h4>
+                    <ul>
+                        <li><a href="#products">Mole Poblano</a></li>
+                        <li><a href="#products">Mole Negro</a></li>
+                        <li><a href="#products">Mole Verde</a></li>
+                        <li><a href="#products">Pipían Rojo</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-links-col">
+                    <h4 class="footer-title uppercase">Recetas</h4>
+                    <ul>
+                        <li><a href="#recipes">Pollo con Mole</a></li>
+                        <li><a href="#recipes">Enmoladas Caseras</a></li>
+                        <li><a href="#recipes">Cerdo en Pipían</a></li>
+                        <li><a href="#recipes">Ver Todo</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-links-col">
+                    <h4 class="footer-title uppercase">Tradición</h4>
+                    <ul>
+                        <li><a href="#">El Legado del Metate</a></li>
+                        <li><a href="#">Nuestros Cacaos</a></li>
+                        <li><a href="#">Contacto</a></li>
+                    </ul>
+                </div>
+
+            </div>
+
             <div class="footer-bottom">
-                <p>&copy; 2026 Mole del Refugio. Todos los derechos reservados.</p>
+                <p>&copy; 2026 Mole El Refugio S.A. de C.V. Todos los derechos reservados.</p>
+                <div class="footer-bottom-links">
+                    <a href="#">Política de Privacidad</a>
+                    <a href="#">Términos de Servicio</a>
+                </div>
             </div>
         </div>
     </footer>
 
-    <!-- Product Modal -->
-    <div id="product-modal" class="modal-overlay">
-        <div class="modal-content">
-            <span class="close-modal" onclick="closeProductModal()">&times;</span>
-            <div class="modal-grid">
-                <div class="modal-image">
-                    <img id="modal-img" src="" alt="Producto">
+    <!-- Interactive Product Details Modal -->
+    <div class="modal-overlay" id="product-modal">
+        <div class="modal-card">
+            <button class="modal-close" id="modal-close" aria-label="Cerrar Modal">&times;</button>
+            <div class="modal-grid-layout">
+                <div class="modal-img-container">
+                    <img src="" alt="" id="modal-product-img">
                 </div>
-                <div class="modal-details">
-                    <h2 id="modal-title">Título</h2>
-                    <p id="modal-weight" class="weight-info">Peso</p>
-                    <p id="modal-desc" class="modal-desc">Descripción</p>
-                    <div class="modal-price" id="modal-price">$0</div>
+                <div class="modal-text-details">
+                    <span class="modal-tag uppercase" id="modal-product-tag">Artesanal</span>
+                    <h3 class="modal-product-title uppercase" id="modal-product-name">Nombre del Mole</h3>
+                    <p class="modal-product-desc" id="modal-product-desc">Descripción del mole aquí.</p>
                     
-                    <div class="quantity-selector">
-                        <span>Cantidad:</span>
-                        <div class="qty-controls">
-                            <button onclick="updateModalQty(-1)">-</button>
-                            <input type="number" id="modal-qty" value="1" min="1" readonly>
-                            <button onclick="updateModalQty(1)">+</button>
+                    <div class="modal-nutrition-grid">
+                        <div class="modal-nut-item">
+                            <span class="modal-nut-val" id="modal-nut-protein">100%</span>
+                            <span class="modal-nut-lbl">Metate</span>
+                        </div>
+                        <div class="modal-nut-item">
+                            <span class="modal-nut-val" id="modal-nut-chol">0%</span>
+                            <span class="modal-nut-lbl">Químicos</span>
+                        </div>
+                        <div class="modal-nut-item">
+                            <span class="modal-nut-val" id="modal-nut-iron">Libre</span>
+                            <span class="modal-nut-lbl">Gluten</span>
                         </div>
                     </div>
-                    
-                    <button class="btn-primary w-100" onclick="addToCartFromModal()">Agregar al Carrito</button>
+
+                    <div class="modal-ingredients">
+                        <h4 class="uppercase">Ingredientes Selectos</h4>
+                        <p id="modal-product-ingredients">Cacao fino de aroma, chile ancho, chile mulato, ajonjolí, almendras, pasas, canela y especias secretas.</p>
+                    </div>
+
+                    <button class="btn-primary w-100" onclick="document.getElementById('product-modal').classList.remove('active'); document.body.classList.remove('modal-open'); window.location.href='#newsletter';">Adquirir en Tienda</button>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Cart Drawer -->
-    <div id="cart-drawer" class="cart-overlay">
-        <div class="cart-panel">
-            <div class="cart-header">
-                <h2>Tu Pedido</h2>
-                <span class="close-cart" onclick="closeCart()">&times;</span>
-            </div>
-            <div class="cart-items" id="cart-items">
-                <!-- Items se generan con JS -->
-            </div>
-            <div class="cart-footer">
-                <div class="cart-total">
-                    <span>Total:</span>
-                    <span id="cart-total-price">$0.00 MXN</span>
-                </div>
-                <button class="btn-whatsapp" onclick="checkoutWhatsapp()">
-                    <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
-                    </svg>
-                    Comprar por WhatsApp
-                </button>
-            </div>
-        </div>
-    </div>
+    <!-- Custom Cursor Overlay -->
+    <div class="custom-cursor" id="custom-cursor"></div>
 
+    <!-- Custom JS -->
     <script src="js/main.js"></script>
 </body>
 </html>
