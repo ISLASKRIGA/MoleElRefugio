@@ -508,6 +508,13 @@ function showProductDetails(productKey) {
     document.getElementById('modal-nut-iron').textContent = product.iron;
     document.getElementById('modal-product-ingredients').textContent = product.ingredients;
 
+    // Dynamically update WhatsApp Order URL with product-specific prefilled message
+    const modalWaBtn = document.getElementById('modal-whatsapp-btn');
+    if (modalWaBtn) {
+        const message = `¡Hola! Me interesa realizar un pedido de ${product.title} en Mole El Refugio. 🌶️`;
+        modalWaBtn.href = `https://wa.me/525512345678?text=${encodeURIComponent(message)}`;
+    }
+
     // Show Modal
     modal.classList.add('active');
     document.body.classList.add('modal-open');
